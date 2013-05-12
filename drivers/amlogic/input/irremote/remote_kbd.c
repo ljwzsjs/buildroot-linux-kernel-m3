@@ -200,7 +200,7 @@ static int kp_mouse_event(struct input_dev *dev, unsigned int scancode, unsigned
 void kp_send_key(struct input_dev *dev, unsigned int scancode, unsigned int type)
 {
 	input_dbg("kp_send_key, ircode = 0x%02x\n", scancode);
-	if(scancode == FN_KEY_SCANCODE && type == 1)
+	/*if(scancode == FN_KEY_SCANCODE && type == 1)
 	{
 		// switch from key to pointer
 		if(key_pointer_switch)
@@ -248,7 +248,7 @@ void kp_send_key(struct input_dev *dev, unsigned int scancode, unsigned int type
 		input_event(dev, EV_KEY, BTN_LEFT, 1);
 		input_sync(dev);
 		return;
-	}
+	}*/
 	if(kp_mouse_event(dev, scancode, type)){
 		if(scancode > ARRAY_SIZE(key_map[fcode])){
 			input_dbg("scancode is 0x%04x, out of key mapping.\n", scancode);
